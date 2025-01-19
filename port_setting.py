@@ -12,6 +12,10 @@ port = int(os.getenv("PORT", 8000))
 class EmbeddingRequest(BaseModel):
     text: str
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to my FastAPI app!"}
+
 # Endpoint to generate embeddings
 @app.post("/api/embeddings")
 def generate_embedding(request: EmbeddingRequest):
